@@ -377,6 +377,8 @@ typedef struct server_hdr {
     int32_t datagrams;
     int32_t jitter1;
     int32_t jitter2;
+    int32_t delay_total;
+    int32_t delay;
 #else
     signed int flags        : 32;
     signed int total_len1   : 32;
@@ -388,6 +390,8 @@ typedef struct server_hdr {
     signed int datagrams    : 32;
     signed int jitter1      : 32;
     signed int jitter2      : 32;
+    signed int delay_total  : 32;
+    signed int delay        : 32;
 #endif
 
 } server_hdr;

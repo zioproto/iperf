@@ -186,6 +186,7 @@ void Server::write_UDP_AckFIN( ) {
     FD_ZERO( &readSet ); 
 
     struct timeval timeout; 
+    double average_delay;
 
     int count = 0; 
     while ( count < 10 ) {
@@ -213,6 +214,8 @@ void Server::write_UDP_AckFIN( ) {
             hdr->jitter1      = htonl( (long) stats->jitter );
             hdr->jitter2      = htonl( (long) ((stats->jitter - (long)stats->jitter) 
                                                * rMillion) );
+            hdr->delay        = htonl( (long) stats->delay );
+            hdr->delay_total  = htonl( (long) stats->delay_total );
 
         }
 

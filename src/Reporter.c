@@ -510,6 +510,8 @@ void ReportServerUDP( thread_Settings *agent, server_hdr *server ) {
             stats->cntOutofOrder = ntohl( server->outorder_cnt );
             stats->cntDatagrams = ntohl( server->datagrams );
             stats->mUDP = (char)kMode_Server;
+            stats->delay = ntohl( server->delay );
+            stats->delay_total = ntohl( server->delay_total );
             reporthdr->report.connection.peer = agent->local;
             reporthdr->report.connection.size_peer = agent->size_local;
             reporthdr->report.connection.local = agent->peer;
